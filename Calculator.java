@@ -64,9 +64,22 @@ JPanel p1;
 		p1.add(buttonPoint);
 		p1.add(buttonEqual);
 		
+		// Помещаем панель p1 в центр экрана.
+		windowContent.add("Center", p1);
 		
+		//Создаём фрейм и задаём его основную панель.
+		JFrame frame = new JFrame("Calculator");
+		frame.setContentPane(windowContent);
 		
+		//делаем размер окна достаточным чтоб вместить все компоненты.
+		frame.pack();
 		
+		// Показываем окно.
+		frame.setVisible(true);		
+	}
+	
+	public static void main(String[] args){
 		
+		Calculator calc = new Calculator();
 	}
 }
