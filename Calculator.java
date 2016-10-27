@@ -48,7 +48,7 @@ JPanel p1;
 		// Создаём панель с GridLayout, которая содержит 12 кнопок.
 		p1 = new JPanel();
 		GridLayout gl = new GridLayout(4,3);
-		p1.setLayout(g1);
+		p1.setLayout(gl);
 		
 		// Добавляем кнопки на панель p1.
 		p1.add(button1);
