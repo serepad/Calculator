@@ -19,8 +19,14 @@ JButton button8;
 JButton button9;
 JButton buttonPoint;
 JButton buttonEqual;
+JButton buttonPlus;
+JButton buttonMinus;
+JButton buttonMultiply;
+JButton buttonDivide;
 JPanel p1;
-	
+JPanel p2;
+
+
 	Calculator() {
 		
 		windowContent = new JPanel();
@@ -73,8 +79,8 @@ JPanel p1;
 		
 		// Создаём панель операций p2.
 		p2 = new JPanel();
-		BoxLayout bl = new BoxLayout();
-		p2.SetLayout(bl);
+		GridLayout p2l = new GridLayout(1,4);
+		p2.setLayout(p2l);
 		
 		p2.add(buttonPlus);
 		p2.add(buttonMinus);
