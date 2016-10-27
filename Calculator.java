@@ -44,6 +44,10 @@ JPanel p1;
 		button9 = new JButton("9");
 		buttonPoint = new JButton(".");
 		buttonEqual = new JButton("=");
+		buttonPlus = new JButton("+");
+		buttonMinus = new JButton("-");
+		buttonMultiply = new JButton("*");
+		buttonDivide = new JButton("/");
 		
 		// Создаём панель с GridLayout, которая содержит 12 кнопок.
 		p1 = new JPanel();
@@ -66,6 +70,18 @@ JPanel p1;
 		
 		// Помещаем панель p1 в центр экрана.
 		windowContent.add("Center", p1);
+		
+		// Создаём панель операций p2.
+		p2 = new JPanel();
+		BoxLayout bl = new BoxLayout();
+		p2.SetLayout(bl);
+		
+		p2.add(buttonPlus);
+		p2.add(buttonMinus);
+		p2.add(buttonMultiply);
+		p2.add(buttonDivide);
+		
+		windowContent.add("East", p2);
 		
 		//Создаём фрейм и задаём его основную панель.
 		JFrame frame = new JFrame("Calculator");
