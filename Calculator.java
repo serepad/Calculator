@@ -2,106 +2,69 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Calculator {
-	
-// Объявляем элементы калькулятора.
-JPanel windowContent;
-JTextField displayField;
-JButton button0;
-JButton button1;
-JButton button2;
-JButton button3;
-JButton button4;
-JButton button5;
-JButton button6;
-JButton button7;
-JButton button8;
-JButton button9;
-JButton buttonPoint;
-JButton buttonEqual;
-JButton buttonPlus;
-JButton buttonMinus;
-JButton buttonMultiply;
-JButton buttonDivide;
-JPanel p1;
-JPanel p2;
-
-
-	Calculator() {
+class Calculator extends JFrame {
 		
-		windowContent = new JPanel();
-		BorderLayout bl = new BorderLayout();
-		windowContent.setLayout(bl);
+	Calculator(){
+		setTitle("Calculator");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		// Создаём и добавляем текстовое поле в Северную часть окна.
-		displayField = new JTextField(30);
-		windowContent.add("North", displayField);
+		JButton button0 = new JButton("0");
+		JButton button1 = new JButton("1");
+		JButton button2 = new JButton("2");
+		JButton button3 = new JButton("3");
+		JButton button4 = new JButton("4");
+		JButton button5 = new JButton("5");
+		JButton button6 = new JButton("6");
+		JButton button7 = new JButton("7");
+		JButton button8 = new JButton("8");
+		JButton button9 = new JButton("9");
 		
-		// Создаём кнопки.
-		button0 = new JButton("0");
-		button1 = new JButton("1");
-		button2 = new JButton("2");
-		button3 = new JButton("3");
-		button4 = new JButton("4");
-		button5 = new JButton("5");
-		button6 = new JButton("6");
-		button7 = new JButton("7");
-		button8 = new JButton("8");
-		button9 = new JButton("9");
-		buttonPoint = new JButton(".");
-		buttonEqual = new JButton("=");
-		buttonPlus = new JButton("+");
-		buttonMinus = new JButton("-");
-		buttonMultiply = new JButton("*");
-		buttonDivide = new JButton("/");
 		
-		// Создаём панель с GridLayout, которая содержит 12 кнопок.
-		p1 = new JPanel();
-		GridLayout gl = new GridLayout(4,3);
-		p1.setLayout(gl);
+		JButton buttonPoint = new JButton(".");
+		JButton buttonEqual = new JButton("=");
+		JButton	buttonPlus = new JButton("+");
+		JButton	buttonMinus = new JButton("-");
+		JButton	buttonMultiply = new JButton("*");
+		JButton	buttonDivide = new JButton("/");
 		
-		// Добавляем кнопки на панель p1.
-		p1.add(button1);
-		p1.add(button2);
-		p1.add(button3);
-		p1.add(button4);
-		p1.add(button5);
-		p1.add(button6);
-		p1.add(button7);
-		p1.add(button8);
-		p1.add(button9);
-		p1.add(button0);
-		p1.add(buttonPoint);
-		p1.add(buttonEqual);
+		JTextField display = new JTextField(30);
 		
-		// Помещаем панель p1 в центр экрана.
-		windowContent.add("Center", p1);
-		
-		// Создаём панель операций p2.
-		p2 = new JPanel();
-		GridLayout p2l = new GridLayout(1,4);
-		p2.setLayout(p2l);
-		
-		p2.add(buttonPlus);
-		p2.add(buttonMinus);
-		p2.add(buttonMultiply);
-		p2.add(buttonDivide);
-		
-		windowContent.add("East", p2);
-		
-		//Создаём фрейм и задаём его основную панель.
-		JFrame frame = new JFrame("Calculator");
-		frame.setContentPane(windowContent);
-		
-		//делаем размер окна достаточным чтоб вместить все компоненты.
-		frame.pack();
+		JPanel text = new JPanel();
+			text.add(display);
 			
-		// Показываем окно.
-		frame.setVisible(true);		
+		JPanel num = new JPanel();
+			num.setLayout(new GridLayout(4,3));
+			num.add(button1);
+			num.add(button2);
+			num.add(button3);
+			num.add(button4);
+			num.add(button5);
+			num.add(button6);
+			num.add(button7);
+			num.add(button8);
+			num.add(button9);
+			num.add(button0);
+			num.add(buttonPoint);
+			num.add(buttonEqual);
+		
+		JPanel operations = new JPanel();
+			operations.setLayout(new GridLayout(4,1));
+			operations.add(buttonPlus);
+			operations.add(buttonMinus);
+			operations.add(buttonMultiply);
+			operations.add(buttonDivide);
+			
+		setLayout(new BorderLayout());
+		add(text, BorderLayout.NORTH);
+		add(num, BorderLayout.CENTER);
+		add(operations, BorderLayout.EAST);
+		pack();
+		setResizable(false);
+		setVisible(true);
+		
 	}
 	
-	public static void main(String[] args){
-		
-		Calculator calc = new Calculator();
+	public static void main(String args[]) {
+		new Calculator();
 	}
 }
